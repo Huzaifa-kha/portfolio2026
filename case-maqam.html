@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Case Study — Huzaifa Khan</title>
+<meta name="description" id="pageDesc" content="Case study by Huzaifa Khan, Senior Graphic Designer">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f1ea; --bg-2: #ede6d8; --bg-card: #ffffff;
+  --ink: #0e0e0e; --dim: #4a4a4a; --muted: #6e6e6e; --faint: #a0a0a0;
+  --accent: #6a3aff; --accent-light: #9c7aff; --accent-deep: #4a25cc; --accent-soft: #f0eaff;
+  --border: rgba(14, 14, 14, 0.1); --border-soft: rgba(14, 14, 14, 0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Cabinet Grotesk', 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: var(--accent); color: #fff; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--ink); border-radius: 4px; }
+img { max-width: 100%; display: block; }
+
+.blueprint-grid { position: fixed; inset: 0; pointer-events: none; z-index: 0; background-image: linear-gradient(rgba(14,14,14,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(14,14,14,0.03) 1px, transparent 1px); background-size: 80px 80px; opacity: 0.5; }
+
+.cursor-dot, .cursor-ring { position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transition: width 0.3s, height 0.3s, background 0.3s; }
+.cursor-dot { width: 6px; height: 6px; background: var(--accent); transform: translate(-50%, -50%); }
+.cursor-ring { width: 32px; height: 32px; border: 1.5px solid var(--accent); transform: translate(-50%, -50%); opacity: 0.5; }
+.cursor-ring.hover { width: 60px; height: 60px; background: var(--accent); border-color: var(--accent); opacity: 0.2; }
+@media (max-width: 1024px) { .cursor-dot, .cursor-ring { display: none; } body { cursor: auto; } }
+@media (min-width: 1025px) { body { cursor: none; } a, button { cursor: none; } }
+
+.loader { position: fixed; inset: 0; background: var(--bg); z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 24px; transition: opacity 0.5s, visibility 0.5s; }
+.loader.done { opacity: 0; visibility: hidden; }
+.loader-text { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(40px, 8vw, 90px); font-weight: 800; letter-spacing: -2px; line-height: 1; }
+.loader-progress { width: 180px; height: 2px; background: var(--border); overflow: hidden; border-radius: 2px; }
+.loader-progress::after { content: ''; display: block; width: 100%; height: 100%; background: var(--accent); transform-origin: left; animation: loadBar 1.4s ease-in-out infinite; }
+@keyframes loadBar { 0% { transform: scaleX(0); transform-origin: left; } 50% { transform: scaleX(1); transform-origin: left; } 51% { transform-origin: right; } 100% { transform: scaleX(0); transform-origin: right; } }
+
+.top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(245, 241, 234, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-soft); }
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); font-family: 'Cabinet Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+.nav-logo-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 17px; font-style: italic; transition: transform 0.4s; }
+.nav-logo:hover .nav-logo-mark { transform: rotate(-12deg) scale(1.05); }
+.nav-actions { display: flex; gap: 10px; align-items: center; }
+.btn-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; font-family: inherit; transition: all 0.3s; border: none; cursor: pointer; }
+.btn-pill .arrow { width: 22px; height: 22px; border-radius: 50%; background: #fff; color: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: 10px; transition: transform 0.3s; }
+.btn-pill:hover { background: var(--accent-deep); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(106,58,255,0.25); }
+.btn-pill:hover .arrow { transform: rotate(-45deg); }
+.btn-pill.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-pill.btn-outline .arrow { background: var(--ink); color: var(--bg); }
+.btn-pill.btn-outline:hover { background: var(--ink); color: var(--bg); }
+@media (max-width: 768px) { .top-nav { padding: 14px 22px; } .btn-pill span:not(.arrow) { display: none; } .btn-pill { padding: 10px 14px; } }
+
+.breadcrumb { max-width: 1100px; margin: 0 auto; padding: 110px 60px 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); position: relative; z-index: 2; }
+.breadcrumb a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span.sep { margin: 0 10px; color: var(--faint); }
+.breadcrumb .current { color: var(--ink); font-weight: 600; }
+@media (max-width: 768px) { .breadcrumb { padding: 100px 22px 0; font-size: 10px; } .breadcrumb span.sep { margin: 0 6px; } }
+
+.case-hero { max-width: 1100px; margin: 0 auto; padding: 40px 60px 60px; position: relative; z-index: 2; }
+.case-hero-tag { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; padding: 8px 16px; background: var(--accent-soft); border-radius: 50px; font-weight: 500; }
+.case-hero-tag::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.case-hero h1 { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(44px, 8vw, 108px); font-weight: 900; line-height: 0.95; letter-spacing: -4px; margin-bottom: 24px; }
+.case-hero-brief { font-family: 'Cabinet Grotesk', sans-serif; font-style: italic; font-weight: 500; font-size: clamp(18px, 2vw, 26px); color: var(--accent); max-width: 760px; line-height: 1.35; margin-bottom: 36px; letter-spacing: -0.5px; }
+.case-meta-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
+.case-meta-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
+.case-meta-cell .value { font-size: 14px; color: var(--ink); font-weight: 600; }
+@media (max-width: 768px) { .case-hero { padding: 28px 22px 44px; } .case-meta-bar { grid-template-columns: 1fr 1fr; gap: 18px; padding: 22px; } }
+
+.case-hero-image { max-width: 1200px; margin: 0 auto 70px; padding: 0 60px; position: relative; z-index: 2; }
+.case-hero-image-frame { width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: var(--bg-2); box-shadow: 0 30px 80px rgba(14,14,14,0.12); border: 1px solid var(--border); }
+.case-hero-image-frame img { width: 100%; height: 100%; object-fit: cover; }
+.case-hero-image-caption { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 768px) { .case-hero-image { padding: 0 22px; margin-bottom: 48px; } .case-hero-image-frame { aspect-ratio: 4 / 3; } }
+
+.case-content { max-width: 1100px; margin: 0 auto; padding: 0 60px 64px; display: grid; grid-template-columns: 200px 1fr; gap: 60px; position: relative; z-index: 2; }
+.case-content section { margin-bottom: 72px; scroll-margin-top: 100px; }
+.case-content section:last-child { margin-bottom: 0; }
+.section-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); position: sticky; top: 110px; align-self: start; font-weight: 500; }
+.section-label .num { font-family: 'Cabinet Grotesk', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); display: block; margin-bottom: 6px; letter-spacing: -1px; line-height: 1; }
+.section-body h2 { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(30px, 4vw, 48px); font-weight: 800; line-height: 1.02; letter-spacing: -2px; margin-bottom: 24px; }
+.section-body h2 .it { font-style: italic; font-weight: 500; color: var(--accent); }
+.section-body p { font-size: clamp(15px, 1.2vw, 17px); color: var(--dim); line-height: 1.75; margin-bottom: 18px; }
+.section-body p:last-child { margin-bottom: 0; }
+@media (max-width: 900px) { .case-content { grid-template-columns: 1fr; gap: 20px; padding: 0 22px 56px; } .case-content section { margin-bottom: 52px; } .section-label { position: static; } }
+
+.client-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+.client-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
+.client-cell .value { font-size: 14px; color: var(--ink); line-height: 1.5; font-weight: 500; }
+@media (max-width: 600px) { .client-grid { grid-template-columns: 1fr; padding: 22px; } }
+
+.process-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 14px; }
+.process-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); position: relative; overflow: hidden; }
+.process-card::before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 3px; background: var(--accent); transition: width 0.4s ease; }
+.process-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.process-card:hover::before { width: 100%; }
+.process-card .step { font-family: 'Cabinet Grotesk', sans-serif; font-size: 42px; font-weight: 800; color: var(--accent); line-height: 1; letter-spacing: -2px; margin-bottom: 14px; display: block; }
+.process-card h4 { font-family: 'Cabinet Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.5px; }
+.process-card p { font-size: 13px; color: var(--dim); line-height: 1.65; margin: 0; }
+@media (max-width: 700px) { .process-grid { grid-template-columns: 1fr; } }
+
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.stat-cell { padding: 28px 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; transition: all 0.3s; }
+.stat-cell:hover { background: var(--ink); color: var(--bg); transform: translateY(-4px); }
+.stat-cell:hover .num, .stat-cell:hover .label { color: inherit; }
+.stat-cell .num { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(36px, 4.5vw, 52px); font-weight: 800; color: var(--ink); line-height: 1; letter-spacing: -2px; margin-bottom: 8px; display: block; transition: color 0.3s; }
+.stat-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 500; transition: color 0.3s; }
+@media (max-width: 700px) { .stats-grid { grid-template-columns: 1fr; } }
+
+.deliverables-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--border); }
+.deliverables-list li { padding: 18px 0 18px 28px; position: relative; border-bottom: 1px solid var(--border); font-size: 15px; color: var(--ink); font-weight: 500; transition: all 0.3s; }
+.deliverables-list li:hover { padding-left: 32px; color: var(--accent); background: var(--bg-card); }
+.deliverables-list li:nth-child(odd) { border-right: 1px solid var(--border); padding-right: 24px; }
+.deliverables-list li:nth-child(even) { padding-left: 52px; }
+.deliverables-list li:nth-child(even):hover { padding-left: 56px; }
+.deliverables-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+.deliverables-list li:nth-child(even)::before { left: 24px; }
+@media (max-width: 700px) { .deliverables-list { grid-template-columns: 1fr; } .deliverables-list li:nth-child(odd) { border-right: none; padding-right: 0; } .deliverables-list li:nth-child(even) { padding-left: 28px; } .deliverables-list li:nth-child(even)::before { left: 0; } }
+
+.learning-quote { background: var(--ink); color: var(--bg); border-radius: 20px; padding: 56px 48px; position: relative; margin-top: 12px; overflow: hidden; }
+.learning-quote::before { content: '"'; font-family: 'Cabinet Grotesk', sans-serif; font-style: italic; font-size: 180px; color: var(--accent); position: absolute; top: -10px; left: 24px; line-height: 1; opacity: 0.4; font-weight: 500; }
+.learning-quote::after { content: ''; position: absolute; bottom: -80px; right: -80px; width: 250px; height: 250px; background: var(--accent); border-radius: 50%; filter: blur(100px); opacity: 0.4; }
+.learning-quote p { font-family: 'Cabinet Grotesk', sans-serif; font-style: italic; font-weight: 500; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.4; color: var(--bg); position: relative; z-index: 2; margin: 0; letter-spacing: -0.5px; }
+.learning-quote .attribution { font-family: 'JetBrains Mono', monospace; font-style: normal; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-light); margin-top: 24px; display: block; position: relative; z-index: 2; font-weight: 500; }
+@media (max-width: 600px) { .learning-quote { padding: 40px 28px; } .learning-quote::before { font-size: 120px; } }
+
+.tools-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.tool-chip { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1px; background: var(--bg-card); border: 1px solid var(--border); padding: 10px 18px; border-radius: 50px; color: var(--ink); transition: all 0.3s; font-weight: 500; }
+.tool-chip:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); transform: translateY(-2px); }
+
+.case-pager { max-width: 1100px; margin: 60px auto 0; padding: 56px 60px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-top: 1px solid var(--border); position: relative; z-index: 2; }
+.pager-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 32px; text-decoration: none; color: var(--ink); transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.pager-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 20px 50px rgba(106,58,255,0.15); }
+.pager-card .direction { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+.pager-card.next .direction { justify-content: flex-end; }
+.pager-card.next { text-align: right; }
+.pager-card h3 { font-family: 'Cabinet Grotesk', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.05; margin-bottom: 8px; letter-spacing: -1px; }
+.pager-card .industry { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+@media (max-width: 700px) { .case-pager { grid-template-columns: 1fr; padding: 48px 22px 0; gap: 14px; } .pager-card.next { text-align: left; } .pager-card.next .direction { justify-content: flex-start; } }
+
+.cta-band { background: var(--ink); color: var(--bg); padding: 80px 60px; text-align: center; border-radius: 32px; margin: 80px 20px 60px; max-width: 1320px; margin-left: auto; margin-right: auto; position: relative; overflow: hidden; }
+.cta-band::before { content: ''; position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; background: var(--accent); border-radius: 50%; filter: blur(140px); opacity: 0.4; }
+.cta-band > * { position: relative; z-index: 2; }
+.cta-band h2 { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(36px, 5.5vw, 72px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 20px; }
+.cta-band h2 .it { color: var(--accent-light); font-style: italic; font-weight: 500; }
+.cta-band p { font-size: 15px; color: rgba(255,255,255,0.6); max-width: 460px; margin: 0 auto 32px; line-height: 1.7; }
+.cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cta-band .btn-pill { background: var(--bg); color: var(--ink); }
+.cta-band .btn-pill .arrow { background: var(--accent); color: #fff; }
+.cta-band .btn-pill:hover { background: var(--accent); color: #fff; }
+.cta-band .btn-pill:hover .arrow { background: #fff; color: var(--accent); }
+.cta-band .btn-pill.btn-outline { background: transparent; color: var(--bg); border: 1.5px solid rgba(255,255,255,0.3); }
+.cta-band .btn-pill.btn-outline .arrow { background: var(--bg); color: var(--ink); }
+.cta-band .btn-pill.btn-outline:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+@media (max-width: 768px) { .cta-band { padding: 56px 28px; margin: 60px 16px 40px; border-radius: 24px; } }
+
+.footer-bar { padding: 32px 60px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); max-width: 1440px; margin: 0 auto; }
+.footer-bar .brand { font-family: 'Cabinet Grotesk', sans-serif; font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; }
+.footer-bar .brand .it { font-style: italic; font-weight: 500; color: var(--accent); }
+@media (max-width: 600px) { .footer-bar { padding: 22px; flex-direction: column; align-items: flex-start; } }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="loader" id="loader"><div class="loader-text">Case<span style="color: var(--accent);">.</span></div><div class="loader-progress"></div></div>
+<div class="blueprint-grid"></div>
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-mark">H</span><span>Huzaifa</span></a>
+  <div class="nav-actions">
+    <a href="case-studies.html" class="btn-pill btn-outline"><span>All cases</span> <span class="arrow"><i class="fas fa-th"></i></span></a>
+    <a href="index.html#contact" class="btn-pill"><span>Start a project</span> <span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span class="sep">/</span><a href="case-studies.html">Case Studies</a><span class="sep">/</span><span class="current" id="bcCurrent">Loading…</span>
+</div>
+
+<section class="case-hero">
+  <div class="case-hero-tag" id="heroTag">Loading…</div>
+  <h1 id="heroTitle">Loading…</h1>
+  <p class="case-hero-brief" id="heroBrief">Loading…</p>
+  <div class="case-meta-bar">
+    <div class="case-meta-cell"><div class="label">Year</div><div class="value" id="metaYear">—</div></div>
+    <div class="case-meta-cell"><div class="label">Location</div><div class="value" id="metaLoc">—</div></div>
+    <div class="case-meta-cell"><div class="label">Role</div><div class="value" id="metaRole">—</div></div>
+    <div class="case-meta-cell"><div class="label">Case</div><div class="value" id="metaCase">—</div></div>
+  </div>
+</section>
+
+<section class="case-hero-image">
+  <div class="case-hero-image-frame"><img id="heroImg" src="" alt=""></div>
+  <div class="case-hero-image-caption">
+    <span id="captionTitle">—</span>
+    <span id="captionMeta">—</span>
+  </div>
+</section>
+
+<main class="case-content">
+  <aside class="section-label"><span class="num">01</span>The Client</aside>
+  <section class="section-body">
+    <h2>About <span class="it">the client</span>.</h2>
+    <div class="client-grid">
+      <div class="client-cell"><div class="label">Name</div><div class="value" id="clName">—</div></div>
+      <div class="client-cell"><div class="label">Industry</div><div class="value" id="clIndustry">—</div></div>
+      <div class="client-cell"><div class="label">Market</div><div class="value" id="clMarket">—</div></div>
+      <div class="client-cell"><div class="label">Target Audience</div><div class="value" id="clAudience">—</div></div>
+    </div>
+  </section>
+
+  <aside class="section-label"><span class="num">02</span>The Brief</aside>
+  <section class="section-body">
+    <h2>What was <span class="it">asked</span>.</h2>
+    <p id="briefText">—</p>
+  </section>
+
+  <aside class="section-label"><span class="num">03</span>The Strategy</aside>
+  <section class="section-body">
+    <h2>How I <span class="it">approached it</span>.</h2>
+    <p id="strategyText">—</p>
+  </section>
+
+  <aside class="section-label"><span class="num">04</span>The Solution</aside>
+  <section class="section-body">
+    <h2>What was <span class="it">delivered</span>.</h2>
+    <p id="solutionText">—</p>
+  </section>
+
+  <aside class="section-label"><span class="num">05</span>The Process</aside>
+  <section class="section-body">
+    <h2>Step by <span class="it">step</span>.</h2>
+    <div class="process-grid" id="processGrid"></div>
+  </section>
+
+  <aside class="section-label"><span class="num">06</span>The Numbers</aside>
+  <section class="section-body">
+    <h2>The <span class="it">outcomes</span>.</h2>
+    <div class="stats-grid" id="statsGrid"></div>
+  </section>
+
+  <aside class="section-label"><span class="num">07</span>Deliverables</aside>
+  <section class="section-body">
+    <h2>What was <span class="it">shipped</span>.</h2>
+    <ul class="deliverables-list" id="deliverablesList"></ul>
+  </section>
+
+  <aside class="section-label"><span class="num">08</span>Tools</aside>
+  <section class="section-body">
+    <h2>Software & <span class="it">process</span>.</h2>
+    <div class="tools-list" id="toolsList"></div>
+  </section>
+
+  <aside class="section-label"><span class="num">09</span>Reflection</aside>
+  <section class="section-body">
+    <h2>What I <span class="it">learned</span>.</h2>
+    <div class="learning-quote">
+      <p id="learningText">—</p>
+      <span class="attribution">— Huzaifa Khan, Senior Designer</span>
+    </div>
+  </section>
+</main>
+
+<nav class="case-pager">
+  <a class="pager-card prev" id="prevCase">
+    <div class="direction"><i class="fas fa-arrow-left"></i> Previous</div>
+    <h3 id="prevTitle">—</h3>
+    <span class="industry" id="prevIndustry">—</span>
+  </a>
+  <a class="pager-card next" id="nextCase">
+    <div class="direction">Next <i class="fas fa-arrow-right"></i></div>
+    <h3 id="nextTitle">—</h3>
+    <span class="industry" id="nextIndustry">—</span>
+  </a>
+</nav>
+
+<section class="cta-band">
+  <h2>Want results<br>like <span class="it">these</span>?</h2>
+  <p>I'm available for new senior design and creative direction projects in 2026.</p>
+  <div class="cta-row">
+    <a href="index.html#contact" class="btn-pill"><span>Start a project</span> <span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
+    <a href="case-studies.html" class="btn-pill btn-outline"><span>All cases</span> <span class="arrow"><i class="fas fa-th"></i></span></a>
+  </div>
+</section>
+
+<div class="footer-bar">
+  <span class="brand">Huzaifa<span class="it">.</span></span>
+  <span>© 2026 · Senior Graphic Designer · Crafted with care in Peshawar</span>
+</div>
+
+<script src="case-studies-data.js"></script>
+<script>
+window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('done'), 500));
+
+const cursorDot = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px'; });
+function animateRing() { ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15; cursorRing.style.left = ringX + 'px'; cursorRing.style.top = ringY + 'px'; requestAnimationFrame(animateRing); }
+animateRing();
+
+function getCurrentSlug() {
+  const file = window.location.pathname.split('/').pop() || '';
+  const match = file.match(/^case-(.+)\.html$/);
+  if (match) return match[1];
+  return new URLSearchParams(window.location.search).get('slug');
+}
+
+const slug = getCurrentSlug();
+const idx = CASE_STUDIES.findIndex(c => c.slug === slug);
+
+if (idx === -1) {
+  document.body.innerHTML = '<div style="padding:140px 40px;text-align:center;font-family:Cabinet Grotesk,sans-serif;"><h1 style="font-size:64px;font-weight:800;letter-spacing:-2px;margin-bottom:16px;">Case not found</h1><p style="color:#4a4a4a;margin-bottom:32px;">The case study you\'re looking for doesn\'t exist.</p><a href="case-studies.html" style="color:#6a3aff;font-weight:600;">← Back to all case studies</a></div>';
+} else {
+  const cs = CASE_STUDIES[idx];
+
+  document.getElementById('pageTitle').textContent = `${cs.title} — Case Study — Huzaifa Khan`;
+  document.getElementById('pageDesc').setAttribute('content', cs.brief);
+  document.getElementById('bcCurrent').textContent = cs.title;
+
+  document.getElementById('heroTag').textContent = `Case ${cs.number} of 10 · ${cs.industry}`;
+  document.getElementById('heroTitle').textContent = cs.title;
+  document.getElementById('heroBrief').textContent = cs.brief;
+  document.getElementById('metaYear').textContent = cs.year;
+  document.getElementById('metaLoc').textContent = `${cs.locationEmoji} ${cs.location}`;
+  document.getElementById('metaRole').textContent = cs.role;
+  document.getElementById('metaCase').textContent = `${cs.number} / 10`;
+
+  const heroImg = document.getElementById('heroImg');
+  heroImg.src = cs.img;
+  heroImg.alt = cs.title;
+  document.getElementById('captionTitle').textContent = `${cs.title} — ${cs.industry}`;
+  document.getElementById('captionMeta').textContent = `${cs.location} · ${cs.year}`;
+
+  document.getElementById('clName').textContent = cs.client.name;
+  document.getElementById('clIndustry').textContent = cs.client.industry;
+  document.getElementById('clMarket').textContent = cs.client.market;
+  document.getElementById('clAudience').textContent = cs.client.audience;
+
+  document.getElementById('briefText').textContent = cs.theBrief;
+  document.getElementById('strategyText').textContent = cs.strategy;
+  document.getElementById('solutionText').textContent = cs.solution;
+
+  document.getElementById('processGrid').innerHTML = cs.process.map(p => `
+    <div class="process-card">
+      <span class="step">${p.step}</span>
+      <h4>${p.title}</h4>
+      <p>${p.desc}</p>
+    </div>
+  `).join('');
+
+  document.getElementById('statsGrid').innerHTML = cs.stats.map(s => `
+    <div class="stat-cell">
+      <span class="num">${s.n}</span>
+      <span class="label">${s.l}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('deliverablesList').innerHTML = cs.deliverables.map(d => `<li>${d}</li>`).join('');
+
+  const tools = cs.tools.split(/[·•|]/).map(t => t.trim()).filter(Boolean);
+  document.getElementById('toolsList').innerHTML = tools.map(t => `<span class="tool-chip">${t}</span>`).join('');
+
+  document.getElementById('learningText').textContent = cs.learning;
+
+  const prevIdx = (idx - 1 + CASE_STUDIES.length) % CASE_STUDIES.length;
+  const nextIdx = (idx + 1) % CASE_STUDIES.length;
+  const prev = CASE_STUDIES[prevIdx];
+  const next = CASE_STUDIES[nextIdx];
+
+  document.getElementById('prevCase').href = `case-${prev.slug}.html`;
+  document.getElementById('prevTitle').textContent = prev.title;
+  document.getElementById('prevIndustry').textContent = prev.industry;
+
+  document.getElementById('nextCase').href = `case-${next.slug}.html`;
+  document.getElementById('nextTitle').textContent = next.title;
+  document.getElementById('nextIndustry').textContent = next.industry;
+
+  setTimeout(() => {
+    document.querySelectorAll('a, button, .process-card, .pager-card, .stat-cell, .tool-chip, .deliverables-list li').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
+    });
+  }, 100);
+}
+</script>
+</body>
+</html>
