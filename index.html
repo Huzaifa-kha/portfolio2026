@@ -807,11 +807,14 @@ section { padding: 120px 60px; position: relative; max-width: 1440px; margin: 0 
   .journey-line { left: 25px; }
   .journey-node { padding-top: 26px; }
   .journey-node-date { top: 52px; }
+  /* Reset all four slot variants to be visible and unstyled */
   .journey-entry.left .journey-card-slot:nth-child(1), .journey-entry.left .journey-card-slot:nth-child(3),
   .journey-entry.right .journey-card-slot:nth-child(1), .journey-entry.right .journey-card-slot:nth-child(3) {
     grid-column: 2; padding: 0; text-align: left; opacity: 1 !important; pointer-events: auto;
   }
-  .journey-entry.left .journey-card-slot:nth-child(1), .journey-entry.right .journey-card-slot:nth-child(1) { display: none; }
+  /* Hide ONLY the empty slot for each entry type — content stays visible */
+  .journey-entry.left .journey-card-slot:nth-child(3) { display: none; }   /* left entries: content in slot 1, hide slot 3 */
+  .journey-entry.right .journey-card-slot:nth-child(1) { display: none; }  /* right entries: content in slot 3, hide slot 1 */
   .journey-entry.left .journey-card .role, .journey-entry.right .journey-card .role { justify-content: flex-start; }
   .journey-entry.left .journey-card ul li, .journey-entry.right .journey-card ul li { padding-left: 16px; padding-right: 0; }
   .journey-entry.left .journey-card ul li::before, .journey-entry.right .journey-card ul li::before { left: 0; right: auto; }
