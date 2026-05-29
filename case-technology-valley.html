@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">Case Study — Huzaifa Khan</title>
 <meta name="description" id="pageDesc" content="Case study by Huzaifa Khan, Senior Graphic Designer">
-<link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root {
@@ -18,9 +16,12 @@
   --accent: #6a3aff; --accent-light: #9c7aff; --accent-deep: #4a25cc; --accent-soft: #f0eaff;
   --border: rgba(14, 14, 14, 0.1); --border-soft: rgba(14, 14, 14, 0.06);
 }
+/* Italic accents use Instrument Serif */
+h1 .it, h2 .it, h3 .it, .it { font-family: 'Instrument Serif', 'Times New Roman', serif !important; font-weight: 400 !important; letter-spacing: -0.01em; }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Cabinet Grotesk', 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { font-family: 'Poppins', 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 ::selection { background: var(--accent); color: #fff; }
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
@@ -38,13 +39,13 @@ img { max-width: 100%; display: block; }
 
 .loader { position: fixed; inset: 0; background: var(--bg); z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 24px; transition: opacity 0.5s, visibility 0.5s; }
 .loader.done { opacity: 0; visibility: hidden; }
-.loader-text { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(40px, 8vw, 90px); font-weight: 800; letter-spacing: -2px; line-height: 1; }
+.loader-text { font-family: 'Poppins', sans-serif; font-size: clamp(40px, 8vw, 90px); font-weight: 800; letter-spacing: -2px; line-height: 1; }
 .loader-progress { width: 180px; height: 2px; background: var(--border); overflow: hidden; border-radius: 2px; }
 .loader-progress::after { content: ''; display: block; width: 100%; height: 100%; background: var(--accent); transform-origin: left; animation: loadBar 1.4s ease-in-out infinite; }
 @keyframes loadBar { 0% { transform: scaleX(0); transform-origin: left; } 50% { transform: scaleX(1); transform-origin: left; } 51% { transform-origin: right; } 100% { transform: scaleX(0); transform-origin: right; } }
 
 .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(245, 241, 234, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-soft); }
-.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); font-family: 'Cabinet Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
 .nav-logo-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 17px; font-style: italic; transition: transform 0.4s; }
 .nav-logo:hover .nav-logo-mark { transform: rotate(-12deg) scale(1.05); }
 .nav-actions { display: flex; gap: 10px; align-items: center; }
@@ -67,8 +68,8 @@ img { max-width: 100%; display: block; }
 .case-hero { max-width: 1100px; margin: 0 auto; padding: 40px 60px 60px; position: relative; z-index: 2; }
 .case-hero-tag { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; padding: 8px 16px; background: var(--accent-soft); border-radius: 50px; font-weight: 500; }
 .case-hero-tag::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-.case-hero h1 { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(44px, 8vw, 108px); font-weight: 900; line-height: 0.95; letter-spacing: -4px; margin-bottom: 24px; }
-.case-hero-brief { font-family: 'Cabinet Grotesk', sans-serif; font-style: italic; font-weight: 500; font-size: clamp(18px, 2vw, 26px); color: var(--accent); max-width: 760px; line-height: 1.35; margin-bottom: 36px; letter-spacing: -0.5px; }
+.case-hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(44px, 8vw, 108px); font-weight: 900; line-height: 0.95; letter-spacing: -4px; margin-bottom: 24px; }
+.case-hero-brief { font-family: 'Poppins', sans-serif; font-style: italic; font-weight: 500; font-size: clamp(18px, 2vw, 26px); color: var(--accent); max-width: 760px; line-height: 1.35; margin-bottom: 36px; letter-spacing: -0.5px; }
 .case-meta-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
 .case-meta-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
 .case-meta-cell .value { font-size: 14px; color: var(--ink); font-weight: 600; }
@@ -84,8 +85,8 @@ img { max-width: 100%; display: block; }
 .case-content section { margin-bottom: 72px; scroll-margin-top: 100px; }
 .case-content section:last-child { margin-bottom: 0; }
 .section-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); position: sticky; top: 110px; align-self: start; font-weight: 500; }
-.section-label .num { font-family: 'Cabinet Grotesk', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); display: block; margin-bottom: 6px; letter-spacing: -1px; line-height: 1; }
-.section-body h2 { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(30px, 4vw, 48px); font-weight: 800; line-height: 1.02; letter-spacing: -2px; margin-bottom: 24px; }
+.section-label .num { font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); display: block; margin-bottom: 6px; letter-spacing: -1px; line-height: 1; }
+.section-body h2 { font-family: 'Poppins', sans-serif; font-size: clamp(30px, 4vw, 48px); font-weight: 800; line-height: 1.02; letter-spacing: -2px; margin-bottom: 24px; }
 .section-body h2 .it { font-style: italic; font-weight: 500; color: var(--accent); }
 .section-body p { font-size: clamp(15px, 1.2vw, 17px); color: var(--dim); line-height: 1.75; margin-bottom: 18px; }
 .section-body p:last-child { margin-bottom: 0; }
@@ -101,8 +102,8 @@ img { max-width: 100%; display: block; }
 .process-card::before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 3px; background: var(--accent); transition: width 0.4s ease; }
 .process-card:hover { transform: translateY(-4px); border-color: var(--accent); }
 .process-card:hover::before { width: 100%; }
-.process-card .step { font-family: 'Cabinet Grotesk', sans-serif; font-size: 42px; font-weight: 800; color: var(--accent); line-height: 1; letter-spacing: -2px; margin-bottom: 14px; display: block; }
-.process-card h4 { font-family: 'Cabinet Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.5px; }
+.process-card .step { font-family: 'Poppins', sans-serif; font-size: 42px; font-weight: 800; color: var(--accent); line-height: 1; letter-spacing: -2px; margin-bottom: 14px; display: block; }
+.process-card h4 { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.5px; }
 .process-card p { font-size: 13px; color: var(--dim); line-height: 1.65; margin: 0; }
 @media (max-width: 700px) { .process-grid { grid-template-columns: 1fr; } }
 
@@ -110,7 +111,7 @@ img { max-width: 100%; display: block; }
 .stat-cell { padding: 28px 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; transition: all 0.3s; }
 .stat-cell:hover { background: var(--ink); color: var(--bg); transform: translateY(-4px); }
 .stat-cell:hover .num, .stat-cell:hover .label { color: inherit; }
-.stat-cell .num { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(36px, 4.5vw, 52px); font-weight: 800; color: var(--ink); line-height: 1; letter-spacing: -2px; margin-bottom: 8px; display: block; transition: color 0.3s; }
+.stat-cell .num { font-family: 'Poppins', sans-serif; font-size: clamp(36px, 4.5vw, 52px); font-weight: 800; color: var(--ink); line-height: 1; letter-spacing: -2px; margin-bottom: 8px; display: block; transition: color 0.3s; }
 .stat-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 500; transition: color 0.3s; }
 @media (max-width: 700px) { .stats-grid { grid-template-columns: 1fr; } }
 
@@ -125,9 +126,9 @@ img { max-width: 100%; display: block; }
 @media (max-width: 700px) { .deliverables-list { grid-template-columns: 1fr; } .deliverables-list li:nth-child(odd) { border-right: none; padding-right: 0; } .deliverables-list li:nth-child(even) { padding-left: 28px; } .deliverables-list li:nth-child(even)::before { left: 0; } }
 
 .learning-quote { background: var(--ink); color: var(--bg); border-radius: 20px; padding: 56px 48px; position: relative; margin-top: 12px; overflow: hidden; }
-.learning-quote::before { content: '"'; font-family: 'Cabinet Grotesk', sans-serif; font-style: italic; font-size: 180px; color: var(--accent); position: absolute; top: -10px; left: 24px; line-height: 1; opacity: 0.4; font-weight: 500; }
+.learning-quote::before { content: '"'; font-family: 'Poppins', sans-serif; font-style: italic; font-size: 180px; color: var(--accent); position: absolute; top: -10px; left: 24px; line-height: 1; opacity: 0.4; font-weight: 500; }
 .learning-quote::after { content: ''; position: absolute; bottom: -80px; right: -80px; width: 250px; height: 250px; background: var(--accent); border-radius: 50%; filter: blur(100px); opacity: 0.4; }
-.learning-quote p { font-family: 'Cabinet Grotesk', sans-serif; font-style: italic; font-weight: 500; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.4; color: var(--bg); position: relative; z-index: 2; margin: 0; letter-spacing: -0.5px; }
+.learning-quote p { font-family: 'Poppins', sans-serif; font-style: italic; font-weight: 500; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.4; color: var(--bg); position: relative; z-index: 2; margin: 0; letter-spacing: -0.5px; }
 .learning-quote .attribution { font-family: 'JetBrains Mono', monospace; font-style: normal; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-light); margin-top: 24px; display: block; position: relative; z-index: 2; font-weight: 500; }
 @media (max-width: 600px) { .learning-quote { padding: 40px 28px; } .learning-quote::before { font-size: 120px; } }
 
@@ -141,14 +142,14 @@ img { max-width: 100%; display: block; }
 .pager-card .direction { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-weight: 500; }
 .pager-card.next .direction { justify-content: flex-end; }
 .pager-card.next { text-align: right; }
-.pager-card h3 { font-family: 'Cabinet Grotesk', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.05; margin-bottom: 8px; letter-spacing: -1px; }
+.pager-card h3 { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.05; margin-bottom: 8px; letter-spacing: -1px; }
 .pager-card .industry { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); font-weight: 500; }
 @media (max-width: 700px) { .case-pager { grid-template-columns: 1fr; padding: 48px 22px 0; gap: 14px; } .pager-card.next { text-align: left; } .pager-card.next .direction { justify-content: flex-start; } }
 
 .cta-band { background: var(--ink); color: var(--bg); padding: 80px 60px; text-align: center; border-radius: 32px; margin: 80px 20px 60px; max-width: 1320px; margin-left: auto; margin-right: auto; position: relative; overflow: hidden; }
 .cta-band::before { content: ''; position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; background: var(--accent); border-radius: 50%; filter: blur(140px); opacity: 0.4; }
 .cta-band > * { position: relative; z-index: 2; }
-.cta-band h2 { font-family: 'Cabinet Grotesk', sans-serif; font-size: clamp(36px, 5.5vw, 72px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 20px; }
+.cta-band h2 { font-family: 'Poppins', sans-serif; font-size: clamp(36px, 5.5vw, 72px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 20px; }
 .cta-band h2 .it { color: var(--accent-light); font-style: italic; font-weight: 500; }
 .cta-band p { font-size: 15px; color: rgba(255,255,255,0.6); max-width: 460px; margin: 0 auto 32px; line-height: 1.7; }
 .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -162,7 +163,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 768px) { .cta-band { padding: 56px 28px; margin: 60px 16px 40px; border-radius: 24px; } }
 
 .footer-bar { padding: 32px 60px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); max-width: 1440px; margin: 0 auto; }
-.footer-bar .brand { font-family: 'Cabinet Grotesk', sans-serif; font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; }
+.footer-bar .brand { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; }
 .footer-bar .brand .it { font-style: italic; font-weight: 500; color: var(--accent); }
 @media (max-width: 600px) { .footer-bar { padding: 22px; flex-direction: column; align-items: flex-start; } }
 </style>
@@ -319,7 +320,7 @@ const slug = getCurrentSlug();
 const idx = CASE_STUDIES.findIndex(c => c.slug === slug);
 
 if (idx === -1) {
-  document.body.innerHTML = '<div style="padding:140px 40px;text-align:center;font-family:Cabinet Grotesk,sans-serif;"><h1 style="font-size:64px;font-weight:800;letter-spacing:-2px;margin-bottom:16px;">Case not found</h1><p style="color:#4a4a4a;margin-bottom:32px;">The case study you\'re looking for doesn\'t exist.</p><a href="case-studies.html" style="color:#6a3aff;font-weight:600;">← Back to all case studies</a></div>';
+  document.body.innerHTML = '<div style="padding:140px 40px;text-align:center;font-family:Poppins,sans-serif;"><h1 style="font-size:64px;font-weight:800;letter-spacing:-2px;margin-bottom:16px;">Case not found</h1><p style="color:#4a4a4a;margin-bottom:32px;">The case study you\'re looking for doesn\'t exist.</p><a href="case-studies.html" style="color:#6a3aff;font-weight:600;">← Back to all case studies</a></div>';
 } else {
   const cs = CASE_STUDIES[idx];
 
